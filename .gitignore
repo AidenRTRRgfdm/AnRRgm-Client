@@ -1,0 +1,19 @@
+# macOS metadata
+.DS_Store
+._*
+
+# Editor backups and temporary files
+*.swp
+*.swo
+*~
+
+# Local scratch work and dependency caches
+work/
+node_modules/
+__pycache__/
+*.py[cod]
+
+# Local credentials and environment settings
+.env
+.env.*
+!.env.example
