@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         AnRRgm Client
 // @namespace    local:anrrgm-client:gimkit
-// @version      3.2.1
+// @version      3.2.2
 // @description  AnRRgm Client: a locally extended Gimkit userscript with module controls and Don't Look Down movement tools.
-// @author       AnRRgm; original client by Zyrox client
+// @author       AnRRgm
 // @match        https://www.gimkit.com/join*
 // @run-at       document-start
 // @icon         data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23ff4747%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23922d57%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2223%22%20fill%3D%22%2317171d%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2288%22%20height%3D%2288%22%20rx%3D%2219%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Cpath%20d%3D%22M14%2067%2029%2028h10l15%2039H43l-3-9H27l-3%209zm16-18h7l-3.5-11z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M56%2028h13c12%200%2018%205%2018%2014%200%206-3%2010-8%2012l10%2013H77L66%2053v14H56zm10%209v8h4c5%200%207-1%207-4s-2-4-7-4z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E
@@ -727,7 +727,7 @@
 
   function readUserscriptVersion() {
     
-    const CLIENT_VERSION = "3.2.1";
+    const CLIENT_VERSION = "3.2.2";
     return CLIENT_VERSION;
   }
 
@@ -8743,7 +8743,7 @@
     if (!anrrgmMovement.focused || !document.hasFocus() || document.visibilityState !== "visible") return true;
     if (anrrgmMovementTyping(document.activeElement)) return true;
     if (state.visible || state.listeningForBind || state.listeningForMenuBind) return true;
-    if (document.querySelector('.zyrox-config-backdrop:not(.hidden), .anrrgm-config-backdrop:not(.hidden), .zyrox-settings:not(.hidden), .anrrgm-settings:not(.hidden), #zyrox-welcome-overlay, #anrrgm-welcome-overlay')) return true;
+    if (document.querySelector('.anrrgm-config-backdrop:not(.hidden), .anrrgm-settings:not(.hidden), #anrrgm-welcome-overlay')) return true;
     const binding = anrrgmMovement.binding;
     return !binding || binding.input.isListeningForInput === false || binding.stores.me?.isRespawning === true || Boolean(binding.stores.gui?.openInputBlockingUI?.length || binding.stores.gui?.openInputBlockingUI?.size);
   }
@@ -10166,16 +10166,15 @@
           <div class="anrrgm-setting-card">
             <div class="anrrgm-about-content">
               <div><b>AnRRgm Client</b> is a locally extended Gimkit userscript with module toggles, keybinds, theming controls, and Don't Look Down movement tools.</div>
-              <div>Based on the MIT-licensed <b>Zyrox Client</b>; original source and author credit are preserved below.</div>
               <div>We are not responsible for any bans, account issues, data loss, or damages that may result from using this client. Use it at your own risk.</div>
               <div>Version: ${CONFIG.version}</div>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
                 <a
                   class="anrrgm-btn anrrgm-about-source-btn"
-                  href="https://github.com/Zyrox-client/Zyrox-gimkit-client"
+                  href="https://github.com/AidenRTRRgfdm/AnRRgm-Client"
                   target="_blank"
                   rel="noopener noreferrer"
-                >Original Zyrox Source</a>
+                >View Source Code</a>
                 
               </div>
             </div>
